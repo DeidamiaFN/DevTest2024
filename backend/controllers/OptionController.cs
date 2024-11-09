@@ -32,7 +32,7 @@ public class OptionControllers : ControllerBase
   [HttpPost]
   public async Task<ActionResult<Option>> Post([FromBody] OptionPostDto option)
   {
-    var voteDto = _mapper.Map<Option>((option, 1, 0));
+    var voteDto = _mapper.Map<Option>((option, 1, 2, 0));
     var newOption = await _optionService.Add(voteDto);
     
     return CreatedAtAction(nameof(GetOption), new { id = newOption.Id }, voteDto);

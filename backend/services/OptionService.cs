@@ -32,4 +32,9 @@ public class OptionService : IOptionService
   {
     return _optionRepository.Vote(id);
   }
+
+  public Task<List<int>> getIdsByPollID(int pollID)
+  {
+    return _optionRepository.getIdsByPollID(pollID);
+  }
 }

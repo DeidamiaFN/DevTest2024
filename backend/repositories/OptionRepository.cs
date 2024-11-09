@@ -18,4 +18,16 @@ public class OptionRepository : AbstractRepository<Option>
     option.Votes++;
     return Task.FromResult(true);
   }
+  
+  public Task<List<int>> getIdsByPollID(int pollID)
+  {
+    var ids = new List<int>();
+    foreach (var entity in _entities)
+    {
+      if(entity.PollId == pollID)
+        ids.Add(entity.Id);
+    }
+    
+    return Task.FromResult(ids);
+  }
 }
